@@ -1,0 +1,69 @@
+/* Effect Pulsar */
+
+.pulsar-btn-container .animate-icon {
+    -webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
+    -moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
+    transition: transform ease-out 0.1s, background 0.2s;
+}
+
+.pulsar-btn-container .animate-icon:after {
+    top: 0;
+    left: 0;
+    padding: 0;
+    z-index: -1;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+.pulsar-btn-container .animate-icon:after {
+    -webkit-animation: sonarEffect 1.3s ease-out 75ms infinite;
+    -moz-animation: sonarEffect 1.3s ease-out 75ms infinite;
+    animation: sonarEffect 1.3s ease-out 75ms infinite;
+}
+
+@-webkit-keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px rgba(255, 255, 255, 0.87), 0 0 0 10px rgba(255,255,255,0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px rgba(255, 255, 255, 0.87), 0 0 0 10px rgba(255,255,255,0.5);
+        -webkit-transform: scale(1.2);
+        opacity: 0;
+    }
+}
+@-moz-keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px rgba(255, 255, 255, 0.87), 0 0 0 10px rgba(255,255,255,0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px rgba(255, 255, 255, 0.87), 0 0 0 10px rgba(255,255,255,0.5);
+        -moz-transform: scale(1.2);
+        opacity: 0;
+    }
+}
+@keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px rgba(255, 255, 255, 0.87), 0 0 0 10px rgba(255,255,255,0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px rgba(255, 255, 255, 0.87), 0 0 0 10px rgba(255,255,255,0.5);
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,15 @@
+ng2-slim-loading-bar{
+  .slim-loading-bar{
+    .slim-loading-bar-progress{
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      z-index: 99998;
+      box-shadow: 0 0 10px 0;
+      height: 2px;
+      opacity: 0;
+      -webkit-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+    }
+  }
+}

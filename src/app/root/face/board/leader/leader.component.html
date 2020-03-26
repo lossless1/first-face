@@ -1,0 +1,21 @@
+<section class="leader-info-wrapper --before" >
+    <div class="leader-info-background-color" [style.background-color]="boardService.randomColor"></div>
+    <div class="leader-info-background-image" [ngClass]="{'--blur':boardService.currentUser.isBanned}"
+         [ngStyle]="{'background':'url('+boardService.currentUser.image+') no-repeat center/cover'}"></div>
+    <div class="leader-info-container">
+        <div class="leader-name">
+            <h1>{{boardService.currentUser.name | uppercase}}</h1>
+        </div>
+        <div class="leader-info">
+            <p>
+                {{boardService.currentUser.info}}
+            </p>
+        </div>
+        <div class="leader-contacts" *ngIf="boardService.currentUser.hasOwnProperty('contacts')">
+            <p *ngFor="let contact of boardService.currentUser.contacts">
+                {{contact}}
+            </p>
+        </div>
+        <icons class="circle-button close-tr-icon --centered-r --no--shadow" [name]="'close-tr'" [routerLink]="['../']" ></icons>
+    </div>
+</section>

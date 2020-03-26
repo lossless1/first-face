@@ -1,0 +1,46 @@
+<section class="info-wrapper" #wrapper>
+    <div class="info-container">
+        <section class="leader-info-wrapper">
+            <div class="leader-info-container">
+                <div class="leader-name">
+                    <h1>{{faceService.currentUser.name | uppercase}}</h1>
+                </div>
+                <div class="leader-info">
+                    <p>
+                        {{faceService.currentUser.info}}
+                    </p>
+                </div>
+                <div class="leader-contacts" *ngIf="faceService.currentUser.hasOwnProperty('contacts')">
+                    <p *ngFor="let contact of faceService.currentUser.contacts">
+                        {{contact}}
+                    </p>
+                </div>
+            </div>
+        </section>
+        <icons class="circle-button leader-tr-icon --no--shadow" [name]="'leader-tr'" [routerLink]="['../board']" ></icons>
+        <icons class="circle-button close-tr-icon --centered-r --no--shadow" [name]="'close-tr'" [routerLink]="['../']" ></icons>
+        <div class="routes-container">
+            <div class="route__arrows">
+                <left-arrow-icon class="circle-button --no--shadow" [hidden]="faceService.isLastUser()" [transparent]="true"
+                                 [routerLink]="['/',faceService.getPreviousIdUser(),'info']"></left-arrow-icon>
+
+                <right-arrow-icon class="circle-button --no--shadow" [hidden]="faceService.isFirstUser()" [transparent]="true"
+                                  [routerLink]="['/', faceService.getNextIdUser(),'info']"></right-arrow-icon>
+            </div>
+            <div class="face-route__become">
+                <a class="long-button -long-tr" [routerLink]="['/become']">
+                    <p>{{'become the first' | uppercase}}</p>
+                </a>
+            </div>
+            <div class="route__share" [ngClass]="{'--un-active': !faceService.isShareOpen}">
+                <a class="long-button --small -long-tr" (click)="faceService.copyToClipBoard()">
+                    <p>{{'copy link for friends' | uppercase}}</p>
+                </a>
+                <a class="circle-button twitter-icon --no--shadow"></a>
+                <a class="circle-button googleplus-icon --no--shadow"></a>
+                <a class="circle-button facebook-icon --no--shadow"></a>
+                <icons class="circle-button share-tr-icon --no--shadow" [name]="'share-tr'" (click)="faceService.toggleShare()"></icons>
+            </div>
+        </div>
+    </div>
+</section>

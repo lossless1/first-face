@@ -1,0 +1,149 @@
+<section class="pay-wrapper">
+    <div class="pay-container" [@stepAnimate]="steps[0].isAnimate" *ngIf="steps[0].selected">
+        <div class="pay-header">
+            <p class="pay-header__title">{{'this is right choise!' | uppercase}}</p>
+            <p class="pay-header__title-small">{{'not every day you can become a face of the planet' | uppercase}}</p>
+        </div>
+        <div class="pay-sign-in">
+            <div class="pay-sign-in__twitter" (click)="nextStep()">
+                <div class="icon icon-twitter"></div>
+                <div class="sign-text">
+                    <p>{{'Sign in with Twitter'}}</p>
+                </div>
+            </div>
+            <div class="pay-sign-in__facebook" (click)="nextStep()">
+                <div class="icon icon-facebook"></div>
+                <div class="sign-text">
+                    <p>{{'Sign in with Facebook'}}</p>
+                </div>
+            </div>
+            <div class="pay-sign-in__google" (click)="nextStep()">
+                <div class="icon icon-google"></div>
+                <div class="sign-text">
+                    <p>{{'Sign in with Google'}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="pay-footer">
+            <p class="pay-footer__title">
+                {{'Fast and secure authorization'}}
+            </p>
+            <p class="pay-footer__title">
+                {{'We will not publish anything from your profile'}}
+            </p>
+        </div>
+        <icons class="circle-button close-tr-icon --no--shadow" [name]="'close-tr'"
+               [routerLink]="['../']"></icons>
+    </div>
+    <div class="pay-steps" *ngIf="isInfoSteps()">
+        <div class="pay-header-left">
+            <p class="pay-header-left__title">{{('step ' | uppercase) + currentStepKey}}</p>
+        </div>
+        <div class="pay-container pay-container__absolute --centered" [@stepAnimate]="steps[1].isAnimate"
+             *ngIf="steps[1].selected">
+
+            <div class="pay-content">
+                <div class="pay-content__title">
+                    <p>{{'upload your photo' | uppercase}}</p>
+                </div>
+                <div class="pay-content__info">
+                    <p>{{'We recommend uploading high-resolution photos. Ideal - bright,'}}</p>
+                    <p>{{'juicy photos pleasing to the eye. Remember that the photo'}}</p>
+                    <p>{{'should be worthy of the first person in the world.'}}</p>
+                </div>
+                <div class="pay-content__action" (click)="nextStep()">
+                    <a class="long-button -long-tr">
+                        <p>{{'upload photo' | uppercase}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pay-container pay-container__absolute --centered" [@stepAnimate]="steps[2].isAnimate"
+             *ngIf="steps[2].selected">
+            <div class="pay-content">
+                <div class="pay-content__input-name">
+                    <input type="text" [placeholder]="'enter your name' | uppercase">
+                </div>
+                <div class="pay-content__action" (click)="nextStep()">
+                    <a class="long-button -long-tr">
+                        <p>{{'next step' | uppercase}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pay-container pay-container__absolute --centered" [@stepAnimate]="steps[3].isAnimate"
+             *ngIf="steps[3].selected">
+            <div class="pay-content">
+                <div class="pay-content__title-count">
+                    <p>{{'message' | uppercase}}</p>
+                    <p>{{countSymbols}}</p>
+                </div>
+                <div class="pay-content__text-area">
+                    <textarea [placeholder]="'Напиши послание всему миру, от первого лица планеты'"
+                              (keydown)="doTextAreaValueChange($event)"></textarea>
+                </div>
+                <div class="pay-content__action" (click)="nextStep()">
+                    <a class="long-button -long-tr">
+                        <p>{{'next step' | uppercase}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pay-container pay-container__absolute --centered" [@stepAnimate]="steps[4].isAnimate"
+             *ngIf="steps[4].selected">
+            <div class="pay-content">
+                <div class="pay-content__title">
+                    <p>{{'добавь ссылки о себе' | uppercase}}</p>
+                </div>
+                <div class="pay-content__info">
+                    <p>{{'Можешь разместить любые ссылки на свои аккаунты, сайт. ' +
+                        'Добавив одну поле для следующей появиться автоматически. Максимум 5 ссылок'}}</p>
+                </div>
+                <div class="pay-content__input">
+                    <div class="pay-content__input__main-link">
+                        <input class="input-link" type="text" [placeholder]="'add your link' | uppercase"
+                               (keyup.enter)="addLink($event)">
+                    </div>
+                    <ng-container *ngFor="let link of steps[4].links;let i = index;">
+                        <div class="pay-content__input__info-link">
+                            <input type="text" class="input-link" [value]="link" disabled>
+                            <icons class="circle-button close-small-tr-icon --no--shadow" [name]="'close-small-tr'"
+                                   (click)="deleteLink(i)"></icons>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="pay-content__action" (click)="nextStep()">
+                    <a class="long-button -long-tr">
+                        <p>{{'next step' | uppercase}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pay-step-container --centered-r">
+            <ng-container *ngFor="let step of infoSteps">
+                <div class="pay-step">
+                    <icons class="--no--shadow" [ngClass]="{'--selected':steps[step].selected}"
+                           [name]="steps[step].selected ? 'circle' : 'circle-tr'" (click)="goToStep(step)"></icons>
+                </div>
+            </ng-container>
+        </div>
+        <icons class="circle-button close-tr-icon --no--shadow" [name]="'close-tr'"
+               [routerLink]="['../']"></icons>
+    </div>
+    <div class="pay-container --centered" [@stepAnimate]="stateAnimate" *ngIf="steps[5].selected">
+        <div class="pay-content">
+            <div class="pay-content__title">
+                <p>{{'last step' | uppercase}}</p>
+            </div>
+            <div class="pay-content__info">
+                <p>{{'Это добрый проект и мы считаем, что деньги которые мы получаем должны ' +
+                    'идти на добрые дела. 50% всех денег мы отдаем '}}<u>{{'бездомным животным'}}</u></p>
+            </div>
+            <div class="pay-content__action">
+                <a class="long-button -long-tr">
+                    <p>{{'pay 5 $' | uppercase}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

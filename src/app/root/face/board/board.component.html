@@ -1,0 +1,74 @@
+<div [@LToRTransition]="''">
+    <section class="leader-board-wrapper">
+        <div class="leader-board-container">
+            <div class="leader-list">
+                <div class="leader-background-color" *ngIf="currentUserId === this.leader.id"
+                     [style.background-color]="boardService.randomColor"></div>
+                <div class="leader-background-image" [ngClass]="{'--blur': leader.isBanned}"
+                     [ngStyle]="{'background':'url('+leader.image+') no-repeat center/cover'}"></div>
+                <div class="leader" #leaderEl
+                     routerLink="{{leader.id}}">
+                    <div class="leader-icon-container">
+                        <div class="leader-icon__big" [routerLink]="['/',leader.id]"></div>
+                    </div>
+                    <div class="time-container">
+                        <h3 class="time time-years">
+                            {{'1 year' | uppercase}}
+                        </h3>
+                        <h3 class="time time-days">
+                            {{'4 days' | uppercase}}
+                        </h3>
+                        <h3 class="time time-hours">
+                            {{'7 hours' | uppercase}}
+                        </h3>
+                        <h3 class="time time-min">
+                            {{'45 minutes' | uppercase}}
+                        </h3>
+                        <h3 class="time time-sec">
+                            {{'12 seconds' | uppercase}}
+                        </h3>
+                    </div>
+                </div>
+                <div class="board-list__leaders" #leadersEl>
+                    <ng-container *ngFor="let user of users;let i = index;">
+                        <div class="leader-container">
+                            <div class="leader-background-color" *ngIf="currentUserId === user.id"
+                                 [style.background-color]="boardService.randomColor"></div>
+                            <div class="leader-background-image"
+                                 [ngStyle]="{'background':'url('+user.image+') no-repeat center/cover'}"
+                                 [ngClass]="{'--blur': user.isBanned}"></div>
+                            <div class="leader"
+                                 [routerLink]="[user.id]" routerLinkActive="--active">
+                                <h1 class="leader-position">
+                                    {{i + 2}}
+                                </h1>
+                                <div class="time-container">
+                                    <h3 class="time time-years">
+                                        {{'1 year' | uppercase}}
+                                    </h3>
+                                    <h3 class="time time-days">
+                                        {{'4 days' | uppercase}}
+                                    </h3>
+                                    <h3 class="time time-hours">
+                                        {{'7 hours' | uppercase}}
+                                    </h3>
+                                    <h3 class="time time-min">
+                                        {{'45 minutes' | uppercase}}
+                                    </h3>
+                                    <h3 class="time time-sec">
+                                        {{'12 seconds' | uppercase}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div [@RToLTransition]="''">
+    <router-outlet #route="outlet"></router-outlet>
+</div>
+

@@ -1,0 +1,98 @@
+.face-wrapper {
+    position: fixed;
+    height: 100vh;
+    .face-background {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        display: block;
+    }
+    .face-container {
+        position: fixed;
+        width: 100vw;
+        .header-info {
+            padding: $f89;
+            color: $white;
+            width: 37%;
+            &__status {
+                font-size: $f89;
+                font-family: ImpactRegular, sans-serif;
+                padding-bottom: $f89;
+                h1 {
+                    @include text-shadow;
+                    margin-bottom: $f16;
+                }
+            }
+            &__time {
+                margin-bottom: $f16;
+                h3 {
+                    margin-bottom: $f16;
+                }
+                .time-container {
+                    .time {
+                        font-family: AkrobatBold, sans-serif;
+                        font-size: $f42;
+                        @include text-shadow;
+                    }
+                    .time-days {
+
+                    }
+                    .time-hours {
+
+                    }
+                    .time-min {
+
+                    }
+                    .time-sec {
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.routes-container {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: $f178;
+    width: 100%;
+    width: -webkit-fill-available;
+    margin: 0 $f68;
+    & > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .route__arrows {
+        position: absolute;
+        left: 0;
+        width: $f144 - $f8;
+        div:nth-child(1) {
+            margin-right: $f21;
+        }
+    }
+    .route__share {
+        position: absolute;
+        right: 0;
+    }
+    .--un-active {
+        a {
+            bottom: 0;
+            opacity: 0;
+            &:last-child {
+                opacity: 1;
+            }
+        }
+        .--small {
+            width: $f55;
+            right: 0;
+        }
+    }
+}
+
+

@@ -1,0 +1,50 @@
+svg {
+    &:hover {
+        circle {
+            opacity: 1;
+        }
+        line {
+            stroke-opacity: 1;
+        }
+        path {
+            opacity: 1;
+        }
+    }
+}
+
+left-arrow-icon svg:hover line, left-arrow-icon svg:hover path {
+    -webkit-animation: toLeftFromRight 0.3s forwards;
+    -moz-animation: toLeftFromRight 0.3s forwards;
+    animation: toLeftFromRight 0.3s forwards;
+}
+
+@keyframes toLeftFromRight {
+    49% {
+        transform: translate(-100px);
+    }
+    50% {
+        opacity: 0;
+        transform: translate(100px);
+    }
+    51% {
+        opacity: 1;
+    }
+}
+
+right-arrow-icon svg:hover line, right-arrow-icon svg:hover path{
+    -webkit-animation: toRightFromLeft 0.3s forwards;
+    -moz-animation: toRightFromLeft 0.3s forwards;
+    animation: toRightFromLeft 0.3s forwards;
+}
+@keyframes toRightFromLeft{
+    49% {
+        transform: translate(100px);
+    }
+    50% {
+        opacity: 0;
+        transform: translate(-100px);
+    }
+    51% {
+        opacity: 1;
+    }
+}

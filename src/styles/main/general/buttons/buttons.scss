@@ -1,0 +1,247 @@
+@import "pulsar-button.scss";
+@import "translate-button.scss";
+
+@mixin hover-effect-simple-btns {
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.circle-button {
+    width: $f55;
+    height: $f55;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    cursor: pointer;
+    @include box-shadow;
+    @include btn-transition;
+
+}
+
+.left-arrow-link {
+    position: absolute;
+}
+
+.right-arrow-link {
+    position: absolute;
+    left: $f89 - $f10 + $f2;
+}
+
+.left-arrow-icon {
+    background-image: url("/assets/img/icons/left-arrow.svg");
+}
+
+.-link {
+    position: absolute;
+}
+
+.right-arrow-icon {
+    background-image: url("/assets/img/icons/right-arrow.svg");
+}
+
+.long-button {
+    color: $black;
+    font-family: AkrobatBold, sans-serif;
+    height: $f89;
+    background-color: $white;
+    border-radius: $f42 + $f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 $f68;
+    @include hover-effect-simple-btns;
+    @include btn-transition;
+    p {
+        position: relative;
+        bottom: $f1;
+        line-height: $f10;
+        font-size: $f34;
+    }
+}
+
+.-long-tr {
+    border: $f2 solid rgba(255, 255, 255, 0.38);
+    background-color: transparent;
+    &:hover {
+        border-color: rgba(255, 255, 255, 1);
+    }
+    p {
+        color: $white;
+    }
+}
+
+.--small {
+    position: absolute;
+    right: $f68 + $f8;
+    height: $f55;
+    width: $f288;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    p {
+        font-size: $f26;
+    }
+}
+
+$i: 0;
+$z-index: 200;
+$k: 1;
+@each $soc in share facebook googleplus twitter {
+    .#{$soc}-icon {
+        background-image: url("/assets/img/icons/social/#{$soc}.svg");
+        @if $soc == share {
+            position: relative;
+        } @else {
+            position: absolute;
+        }
+        @if $soc != share {
+            bottom: ($f55 * $i) + $f21 * $i;
+        }
+        z-index: $z-index;
+        @include hover-effect-simple-btns;
+    }
+    $i: $i + 1;
+    $z-index: $z-index - 10;
+}
+
+.info-icon {
+    background-image: url("/assets/img/icons/info.svg");
+    transform: scale(1.5);
+    position: absolute;
+    top: calc(96vh / 2);
+    right: $f68;
+}
+
+.leader-icon {
+    background-image: url("/assets/img/icons/leader.svg");
+    position: absolute;
+    top: $f68;
+    right: $f68;
+    @include hover-effect-simple-btns;
+    &__big {
+        width: $f68;
+        cursor: pointer;
+        position: relative;
+        height: $f34 - $f2;
+        background: url("/assets/img/icons/leader-big.svg") no-repeat;
+    }
+    &__big:hover {
+        background: url("/assets/img/icons/leader-color.svg") no-repeat;
+    }
+    &__color {
+        width: $f89 + $f5;
+        height: $f55;
+        background: url("/assets/img/icons/leader-color.svg") no-repeat;
+    }
+}
+
+.close-icon {
+    background-image: url("/assets/img/icons/close.svg");
+    position: absolute;
+    top: $f68;
+    right: $f68;
+    @include hover-effect-simple-btns;
+}
+
+.quotes-icon {
+    background-image: url("/assets/img/icons/quotes.svg");
+    position: absolute;
+    top: $f68;
+    right: $f68;
+}
+
+.leader-tr-icon {
+    position: absolute;
+    top: $f68;
+    right: $f68;
+    @include hover-effect-simple-btns;
+    @include no-box-shadow;
+}
+
+.left-arrow-tr-icon {
+    background-image: url("/assets/img/icons/left-arrow-tr.svg");
+    @include no-box-shadow;
+}
+
+.right-arrow-tr-icon {
+    background-image: url("/assets/img/icons/right-arrow-tr.svg");
+    @include no-box-shadow;
+}
+
+.share-tr-icon {
+    position: relative;
+    z-index: 200;
+    @include hover-effect-simple-btns;
+    @include no-box-shadow;
+}
+
+.close-tr-icon {
+    transform: scale(1.5);
+    position: absolute;
+    top: $f68;
+    right: $f68;
+    @include no-box-shadow;
+}
+
+.close-small-tr-icon {
+    position: absolute;
+    width: $f16 + $f2;
+    height: $f16 + $f2;
+    top: 0;
+    right: 0;
+    @include no-box-shadow;
+}
+
+.--no--shadow {
+    box-shadow: none;
+}
+
+.--centered-r {
+    position: absolute;
+    top: calc(96vh / 2);
+    right: $f68;
+}
+.--no-scale{
+    transform: scale(1);
+}
+.--centered {
+    display: flex !important;
+    justify-content: center !important;
+}
+.--bordered {
+    border: $f1 solid rgba(0,0,0,0.38);
+    &:hover{
+        border-color: rgba(0,0,0,1);
+    }
+}
+
+.animate-icon {
+    width: $f55;
+    height: $f55;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 1;
+    color: #fff;
+}
+
+.animate-icon:after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.animate-icon:before {
+    speak: none;
+    font-size: 48px;
+    line-height: 90px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+}
+

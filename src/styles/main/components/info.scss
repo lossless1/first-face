@@ -1,0 +1,16 @@
+.info-wrapper {
+    position: absolute;
+    top: 0;
+    @include before-background;
+
+    .info-container {
+        height: 100vh;
+        width: 100vw;
+        .leader-info-wrapper{
+            width: 100vw;
+            .leader-info-container{
+                width: $f610 + $f330 + $f34 - ($f8 / 2);
+            }
+        }
+    }
+}

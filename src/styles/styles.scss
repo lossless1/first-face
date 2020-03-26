@@ -1,0 +1,29 @@
+@import 'main/variables/_variables.scss';
+
+@import 'main/general/reset.scss';
+@import 'main/general/helpers.scss';
+@import 'main/general/mixins.scss';
+@import 'main/general/colors.scss';
+@import 'main/general/progressbar.scss';
+@import 'main/general/scrollbar.scss';
+@import 'main/general/buttons/buttons.scss';
+@import 'main/general/buttons/pulsar-button.scss';
+@import 'main/general/buttons/translate-button.scss';
+@import 'main/general/modal.scss';
+@import 'main/general/forms.scss';
+@import 'main/general/icons.scss';
+@import 'main/assets/loader/preanimation.scss';
+@import 'main/fonts/fonts.scss';
+
+// main/assets for custom style blocks
+// main/components for custom style components
+// main/general for all styles which uses on all project to help smth
+// main/variables for variables
+
+/**
+    Components
+ */
+@import 'main/components/face';
+@import 'main/components/board';
+@import 'main/components/info';
+@import 'main/components/pay/pay';

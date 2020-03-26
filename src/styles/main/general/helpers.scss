@@ -1,0 +1,29 @@
+* {
+  vertical-align: top;
+  box-sizing:border-box;
+}
+
+.pull-left {
+  float:left;
+}
+.pull-right {
+  float:right;
+}
+
+.list-inline {
+  display:inline-block;
+
+  li {
+    display:inline-block;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.tint-overlay {
+  //-webkit-filter: grayscale; /*sepia, hue-rotate, invert....*/
+  -webkit-filter: brightness(50%);
+}
+

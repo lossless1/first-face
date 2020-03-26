@@ -1,0 +1,14 @@
+.error-container{
+  font-size: $f26;
+  font-family: UniNeueHeavy, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  .error-header{
+    font-size: $f34;
+    color: $red;
+  }
+  button{
+    font-size: $f26;
+    background: $white;
+  }
+}
