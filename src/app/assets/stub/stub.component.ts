@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    selector: 'stub-component',
-    template: ''
+    selector: "stub-component",
+    template: ""
 })
 export class StubComponent {
-    constructor(){
-
-    }
+    constructor() {}
 }

@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { AppService } from './app.service';
-import { User } from '../../models/User';
-import { UserService } from './user.service';
-import { ApiUser } from '../api/api.user';
-import { ColorUtilClass } from '../utils/colors.util';
-import { Subscription } from 'rxjs/Subscription';
+import { Injectable } from "@angular/core";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
+import { AppService } from "./app.service";
+import { User } from "../../models/User";
+import { UserService } from "./user.service";
+import { ApiUser } from "../api/api.user";
+import { ColorUtilClass } from "../utils/colors.util";
+import { Subscription } from "rxjs/Subscription";
 
 @Injectable()
 export class FaceService {
@@ -16,10 +16,12 @@ export class FaceService {
     public isShareOpen: boolean = false;
     public _subs: Subscription;
 
-    constructor(private route: ActivatedRoute,
-                private appService: AppService,
-                private router: Router,
-                private userService: UserService) {
+    constructor(
+        private route: ActivatedRoute,
+        private appService: AppService,
+        private router: Router,
+        private userService: UserService
+    ) {
         this._subs = appService.routerState.subscribe(() => {
             this.setCurrentUser();
             this.isFaceComponent();
@@ -27,7 +29,7 @@ export class FaceService {
     }
 
     public isFaceComponent() {
-        return !this.appService.url[1]
+        return !this.appService.url[1];
     }
 
     public deleteCurrentUser() {
@@ -63,22 +65,26 @@ export class FaceService {
 
     public getPreviousIdUser() {
         let index = this.getUserIndex();
-        return this.users[index + 1] ? this.users[index + 1].id : this.users[index].id;
+        return this.users[index + 1]
+            ? this.users[index + 1].id
+            : this.users[index].id;
     }
 
     public getNextIdUser() {
         let index = this.getUserIndex();
-        return this.users[index - 1] ? this.users[index - 1].id : this.users[index].id;
+        return this.users[index - 1]
+            ? this.users[index - 1].id
+            : this.users[index].id;
     }
 
     public copyToClipBoard() {
         let textarea = document.createElement("textarea");
         textarea.textContent = window.location.href;
-        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+        textarea.style.position = "fixed"; // Prevent scrolling to bottom of page in MS Edge.
         document.body.appendChild(textarea);
         textarea.select();
         try {
-            return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+            return document.execCommand("copy"); // Security exception may be thrown by some browsers.
         } catch (ex) {
             console.warn("Copy to clipboard failed.", ex);
             return false;
@@ -94,5 +100,4 @@ export class FaceService {
     public getUserImage() {
         return this.currentUser.image;
     }
-
 }

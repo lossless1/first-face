@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
-import { User } from '../../models/User';
-import { ApiUser } from '../api/api.user';
+import { Injectable } from "@angular/core";
+import { User } from "../../models/User";
+import { ApiUser } from "../api/api.user";
 
 @Injectable()
 export class UserService {
-
     public users: User[] = [new User()];
 
-    constructor(private apiUser: ApiUser) {
-    }
+    constructor(private apiUser: ApiUser) {}
 
     public getUsers(refresh: boolean = false): Promise<User[]> {
         return new Promise(resolve => {
-            if (JSON.stringify(this.users) === JSON.stringify([new User()]) || refresh) {
+            if (
+                JSON.stringify(this.users) === JSON.stringify([new User()]) ||
+                refresh
+            ) {
                 let users = this.apiUser.getUsers();
                 return resolve(users);
                 // .subscribe((users) => {
@@ -23,7 +24,7 @@ export class UserService {
             } else {
                 resolve(this.users);
             }
-        })
+        });
     }
 
     public async getLeaderUser(refresh: boolean = false): Promise<User> {

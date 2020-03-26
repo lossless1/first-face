@@ -1,28 +1,35 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
-    ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, Route,
-    Router, RouterStateSnapshot
-} from '@angular/router';
-import { AuthService } from './auth.service';
+    ActivatedRouteSnapshot,
+    CanActivate,
+    CanActivateChild,
+    CanLoad,
+    Route,
+    Router,
+    RouterStateSnapshot
+} from "@angular/router";
+import { AuthService } from "./auth.service";
 
 @Injectable()
 export class AppGuard implements CanActivate, CanActivateChild, CanLoad {
     public error;
 
-    constructor(private router: Router) {
+    constructor(private router: Router) {}
 
-    }
+    public checkLogin(url: string) {}
 
-    public checkLogin(url: string) {
-
-    }
-
-    public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    public canActivate(
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot
+    ) {
         // return this.checkLogin(state.url);
         return true;
     }
 
-    public canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    public canActivateChild(
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot
+    ) {
         //    return this.canActivate(route, state);
         return true;
     }
@@ -32,5 +39,4 @@ export class AppGuard implements CanActivate, CanActivateChild, CanLoad {
         // return this.checkLogin(url);
         return true;
     }
-
 }

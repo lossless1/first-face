@@ -1,33 +1,31 @@
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { faceTransition } from "./shared/_animations/face.transition";
+import { Router } from "@angular/router";
 import {
-    Component, OnInit,
-    ViewEncapsulation
-} from '@angular/core';
-import { faceTransition } from './shared/_animations/face.transition';
-import { Router } from '@angular/router';
-import {
-    animate, animateChild, group, query, style, transition,
+    animate,
+    animateChild,
+    group,
+    query,
+    style,
+    transition,
     trigger
-} from '@angular/animations';
+} from "@angular/animations";
 
 @Component({
     moduleId: module.id.toString(),
-    selector: 'app',
+    selector: "app",
     encapsulation: ViewEncapsulation.None,
-    templateUrl: './app.component.html',
+    templateUrl: "./app.component.html",
     // animations: [faceTransition],
-    animations: [
-        faceTransition
-    ],
+    animations: [faceTransition]
 })
 export class AppComponent implements OnInit {
     name: string;
 
-    constructor(private _router: Router) {
-
-    }
+    constructor(private _router: Router) {}
 
     public ngOnInit() {
-        console.log('App component!');
+        console.log("App component!");
     }
 
     public prepRouteAnimation(outlet: any) {
@@ -37,7 +35,7 @@ export class AppComponent implements OnInit {
             }
             return this._router.url;
         } catch (e) {
-            return '';
+            return "";
         }
     }
 }

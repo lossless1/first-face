@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { User } from '../../models/User';
-import { UserService } from './user.service';
-import { AppService } from './app.service';
+import { Injectable } from "@angular/core";
+import { User } from "../../models/User";
+import { UserService } from "./user.service";
+import { AppService } from "./app.service";
 
 @Injectable()
 export class BoardService {
@@ -9,13 +9,14 @@ export class BoardService {
 
     public users: User[] = [new User()];
 
-    public randomColor:string;
+    public randomColor: string;
 
-    constructor(private userService: UserService,
-                private appService: AppService) {
-    }
+    constructor(
+        private userService: UserService,
+        private appService: AppService
+    ) {}
 
-    public deleteCurrentUser(){
+    public deleteCurrentUser() {
         this.currentUser = new User();
     }
 

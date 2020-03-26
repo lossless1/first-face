@@ -1,49 +1,46 @@
 import {
-    Component, ElementRef, OnDestroy, OnInit, Renderer2,
+    Component,
+    ElementRef,
+    OnDestroy,
+    OnInit,
+    Renderer2,
     ViewChild
-} from '@angular/core';
-import { User } from '../../../models/User';
-import { UserService } from '../../../shared/services/user.service';
-import { AppService } from '../../../shared/services/app.service';
+} from "@angular/core";
+import { User } from "../../../models/User";
+import { UserService } from "../../../shared/services/user.service";
+import { AppService } from "../../../shared/services/app.service";
 
-import { BoardService } from '../../../shared/services/board.service';
-import { Subscription } from 'rxjs/Subscription';
-import { ColorUtilClass } from '../../../shared/utils/colors.util';
-import { transitions} from '../../../shared/_animations/transitions';
-import { Router } from '@angular/router';
-
-
+import { BoardService } from "../../../shared/services/board.service";
+import { Subscription } from "rxjs/Subscription";
+import { ColorUtilClass } from "../../../shared/utils/colors.util";
+import { transitions } from "../../../shared/_animations/transitions";
+import { Router } from "@angular/router";
 
 export const BOARD_MOCK = {
-    title: 'Hall of Fame',
-    info: 'Добро пожаловать в зал славы.\n' +
-    '                Здесь мы храним время каждого кто был первым лицом планеты.\n' +
-    '                Чем больше времени - тем выше в рейтинге. Если стать первым\n' +
-    '                лицом планеты несколько раз - время суммируется.'
+    title: "Hall of Fame",
+    info:
+        "Добро пожаловать в зал славы.\n" +
+        "                Здесь мы храним время каждого кто был первым лицом планеты.\n" +
+        "                Чем больше времени - тем выше в рейтинге. Если стать первым\n" +
+        "                лицом планеты несколько раз - время суммируется."
 };
 
-
-
-
 @Component({
-    selector: 'board-component',
-    templateUrl: 'board.component.html',
-    animations: [transitions],
+    selector: "board-component",
+    templateUrl: "board.component.html",
+    animations: [transitions]
     // host:{'[@LToRTransition]':''}
 })
-
 export class BoardComponent implements OnInit, OnDestroy {
     public boardMock = BOARD_MOCK;
-
-
 
     public users: User[] = [new User()];
     public leader: User = new User();
 
-    @ViewChild('leaderEl')
+    @ViewChild("leaderEl")
     public leaderEl: ElementRef;
 
-    @ViewChild('leadersEl')
+    @ViewChild("leadersEl")
     public leadersEl: ElementRef;
 
     public _subs: Subscription = new Subscription();
@@ -51,11 +48,12 @@ export class BoardComponent implements OnInit, OnDestroy {
     public currentUserId: string;
     public currentLeaderId: string;
 
-    constructor(private boardService: BoardService,
-                private userService: UserService,
-                private appService: AppService,
-                private router:Router) {
-    }
+    constructor(
+        private boardService: BoardService,
+        private userService: UserService,
+        private appService: AppService,
+        private router: Router
+    ) {}
 
     public async ngOnInit() {
         this.currentLeaderId = this.appService.url[0];
@@ -71,7 +69,6 @@ export class BoardComponent implements OnInit, OnDestroy {
         this.mapUsers(users);
         this.userService.getLeaderUser();
         this.boardService.randomColor = ColorUtilClass.getRandomColor();
-
 
         this.boardService.deleteCurrentUser();
         this.boardService.setCurrentUser();

@@ -1,23 +1,13 @@
-import {
-    Component,
-    OnInit,
-    ViewEncapsulation,
-    OnDestroy
-} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from "@angular/core";
 
 @Component({
-    selector: 'footer-component',
+    selector: "footer-component",
     encapsulation: ViewEncapsulation.None,
-    styleUrls: [
-    ],
-    templateUrl: './footer.component.html'
+    styleUrls: [],
+    templateUrl: "./footer.component.html"
 })
-
 export class FooterComponent implements OnInit, OnDestroy {
-    public ngOnInit() {
+    public ngOnInit() {}
 
-    }
-
-    public ngOnDestroy() {
-    }
+    public ngOnDestroy() {}
 }

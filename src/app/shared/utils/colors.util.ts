@@ -1,38 +1,35 @@
 export const colors: string[] = [
-    '#FFBC00',
-    '#A80756',
-    '#43788F',
-    '#13002E',
-    '#13002e',
-    '#43788f',
-    '#a80756',
-    '#1a5e56',
-    '#1a1644',
-    '#611644',
-    '#2296ff',
-    '#840026',
-    '#420026',
-    '#423226'
+    "#FFBC00",
+    "#A80756",
+    "#43788F",
+    "#13002E",
+    "#13002e",
+    "#43788f",
+    "#a80756",
+    "#1a5e56",
+    "#1a1644",
+    "#611644",
+    "#2296ff",
+    "#840026",
+    "#420026",
+    "#423226"
 ];
 
 export class ColorUtilClass {
-
-    constructor() {
-
-    }
+    constructor() {}
 
     public static cmykToRGB(c, m, y, k) {
-        let cyan = ((c * 100) * 255 * (1 - k)) << 16;
-        let magenta = ((m * 100) * 255 * (1 - k)) << 8;
-        let yellow = ((y * 100) * 255 * (1 - k)) >> 0;
+        let cyan = (c * 100 * 255 * (1 - k)) << 16;
+        let magenta = (m * 100 * 255 * (1 - k)) << 8;
+        let yellow = (y * 100 * 255 * (1 - k)) >> 0;
 
         let black = 255 * (1 - k);
-        let white = black | black << 8 | black << 16;
+        let white = black | (black << 8) | (black << 16);
 
         let color = white - (cyan | magenta | yellow);
         let colorToString = color.toString(16);
 
-        return ("#" + "000000".substr(colorToString.length) + colorToString);
+        return "#" + "000000".substr(colorToString.length) + colorToString;
     }
 
     public static hexToCMYK(hex) {
@@ -41,7 +38,7 @@ export class ColorUtilClass {
         let computedY = 0;
         let computedK = 0;
 
-        hex = (hex.charAt(0) == "#") ? hex.substring(1, 7) : hex;
+        hex = hex.charAt(0) == "#" ? hex.substring(1, 7) : hex;
 
         if (hex.length != 6) {
             return;
@@ -59,9 +56,9 @@ export class ColorUtilClass {
             return [0, 0, 0, 1];
         }
 
-        computedC = 1 - (r / 255);
-        computedM = 1 - (g / 255);
-        computedY = 1 - (b / 255);
+        computedC = 1 - r / 255;
+        computedM = 1 - g / 255;
+        computedY = 1 - b / 255;
 
         let minCMY = Math.min(computedC, Math.min(computedM, computedY));
 
@@ -73,7 +70,7 @@ export class ColorUtilClass {
         return [computedC, computedM, computedY, computedK];
     }
 
-    public static getRandomColor(){
+    public static getRandomColor() {
         return colors[Math.round(Math.random() * colors.length)];
     }
 }
