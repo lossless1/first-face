@@ -1,6 +1,6 @@
 <section class="face-wrapper">
     <div class="face-background" [ngStyle]="{'background':'url('+faceService.getUserImage()+') no-repeat center/cover'}"
-         [ngClass]="{'--blur': faceService.currentUser.isBanned}"></div>
+         [ngClass]="{'--blur': faceService.currentUser?.isBanned}"></div>
     <div class="face-container">
         <div class="header-info">
             <div class="header-info__status">
