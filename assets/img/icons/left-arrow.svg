@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+	 x="0px" y="0px" viewBox="0 0 55 55" xml:space="preserve">
+    <style>
+        svg:hover line,svg:hover path{
+            -webkit-animation: toLeftFromRight 0.3s forwards;
+	        -moz-animation: toLeftFromRight 0.3s forwards;
+	        animation: toLeftFromRight 0.3s forwards;
+        }
+        @keyframes toLeftFromRight {
+	        49% {
+	        	transform: translate(-100px);
+	        }
+	        50% {
+	        	opacity: 0;
+	        	transform: translate(100px);
+	        }
+	        51% {
+	        	opacity: 1;
+	        }
+        }
+    </style>
+    <circle fill="#FFFFFF" cx="27.5" cy="27.5" r="27.5"/>
+    <line fill="none" stroke="#333333" stroke-width="2" stroke-miterlimit="10" x1="55.3" y1="27.5" x2="23.4" y2="27.5"/>
+    <path fill="#151A21" d="M15.9,28.5c-0.9-0.5-0.9-1.4,0-1.9l3.2-1.8c0.9-0.5,2.4-1.4,3.3-1.9l3.2-1.8c0.9-0.5,1.7-0.1,1.7,1v3.7
+	    c0,1,0,2.8,0,3.8v3.7c0,1-0.7,1.5-1.7,1l-3.2-1.8c-0.9-0.5-2.4-1.4-3.3-1.9L15.9,28.5z"/>
+</svg>

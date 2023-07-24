@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 55 55" xml:space="preserve">
+<circle fill="#FFFFFF" cx="27.5" cy="27.5" r="27.5"/>
+<path fill="#333333" d="M32.9,31.8"/>
+<g>
+	<circle fill="#333333" cx="33.5" cy="18" r="6"/>
+	<circle fill="#333333" cx="17.2" cy="28.1" r="6"/>
+	<circle fill="#333333" cx="33.5" cy="38.1" r="6"/>
+</g>
+<line fill="none" stroke="#333333" stroke-width="2" stroke-miterlimit="10" x1="33.5" y1="38.1" x2="17.2" y2="28.1"/>
+<line fill="none" stroke="#333333" stroke-width="2" stroke-miterlimit="10" x1="33.5" y1="18" x2="17.2" y2="28.1"/>
+</svg>
